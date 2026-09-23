@@ -1,0 +1,215 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WELCOME TO A & N WINDOWS AND DOOR SHOP</title>
+</head>
+<body>
+      <style>
+        /* BACKGROUND SLIDESHOW */
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            transition: background-image 1.5s ease-in-out;
+            font-family: Arial, sans-serif;
+            color: white;
+        }
+
+        /* Dark background overlay */
+        .content {
+            background: rgba(0, 0, 0, 0.45);
+            min-height: 100vh;
+            padding: 30px;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        /* ORDER FORM */
+        .order-form {
+            width: 100%;
+            max-width: 500px;
+            margin: 20px auto;
+        }
+
+        .order-form textarea {
+            width: 100%;
+            min-height: 50px;
+            margin-bottom: 12px;
+            padding: 12px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            resize: vertical;
+            font-size: 16px;
+        }
+
+        .order-form textarea:last-of-type {
+            min-height: 120px;
+        }
+
+        /* ORDER BUTTON */
+        .order-form button {
+            width: 100%;
+            padding: 14px;
+            background: #25D366;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .order-form button:hover {
+            background: #20b858;
+        }
+
+        /* WHATSAPP LINK */
+        .whatsapp-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #25D366;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="content">
+
+    <h1>WELCOME TO A & N WINDOW SHOP</h1>
+
+    <p>We are delighted at your visit to our page.</p>
+
+    <p>
+        Here in A & N Window Shop we make windows, doors,
+        cabinets, shower cubicles, etc.
+    </p>
+
+    <p><strong>PROVIDE YOUR INFORMATION</strong></p>
+
+    <div class="order-form">
+
+        <textarea
+            id="customerName"
+            placeholder="Your Name"></textarea>
+
+        <textarea
+            id="customerPhone"
+            placeholder="Phone Number"></textarea>
+
+        <textarea
+            id="customerEmail"
+            placeholder="Email Address"></textarea>
+
+        <textarea
+            id="customerDemand"
+            placeholder="Provide Your Demand"></textarea>
+
+        <button type="button" onclick="sendOrder()">
+            ORDER
+        </button>
+
+    </div>
+
+    <a
+        class="whatsapp-link"
+        href="https://wa.me/2349036320387"
+        target="_blank">
+        Contact us on WhatsApp
+    </a>
+
+</div>
+
+
+<script>
+
+    /* =====================================
+       5 BACKGROUND IMAGES
+       ===================================== */
+
+  const images = [
+    "windows1.jpg",
+    "windows2.jpg",
+    "windows3.jpg",
+    "windows4.jpg",
+    "windows5.jpg",
+    "windows6.jpg"
+];
+
+    let currentImage = 0;
+
+    function changeBackground() {
+
+        document.body.style.backgroundImage =
+            "url('" + images[currentImage] + "')";
+
+        currentImage++;
+
+        if (currentImage >= images.length) {
+            currentImage = 0;
+        }
+    }
+
+    // Show the first image immediately
+    changeBackground();
+
+    // Change image every 5 seconds
+    setInterval(changeBackground, 5000);
+
+
+    /* =====================================
+       WHATSAPP ORDER BUTTON
+       ===================================== */
+
+    function sendOrder() {
+
+        const name =
+            document.getElementById("customerName").value;
+
+        const phone =
+            document.getElementById("customerPhone").value;
+
+        const email =
+            document.getElementById("customerEmail").value;
+
+        const demand =
+            document.getElementById("customerDemand").value;
+
+
+        const message =
+            "NEW ORDER\n\n" +
+            "Name: " + name + "\n" +
+            "Phone: " + phone + "\n" +
+            "Email: " + email + "\n" +
+            "Demand: " + demand;
+
+
+        const whatsappNumber = "2349036320387";
+
+
+        const whatsappLink =
+            "https://wa.me/" +
+            whatsappNumber +
+            "?text=" +
+            encodeURIComponent(message);
+
+
+        window.open(whatsappLink, "_blank");
+    }
+
+</script>
+</body>
+</html>
